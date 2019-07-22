@@ -37,7 +37,7 @@ public class AccDoImplement implements AccountDo{
 	}
 
 	public void removeAccount(Account account) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated me
 		
 	}
 
