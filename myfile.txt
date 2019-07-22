@@ -1,8 +1,57 @@
-Welcome this is my first file
-Task name
- 1.hello world
- My new branch begins here
-  my modern task
-  modern task 
-  1. mt
-  2. mt
+package com.model;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public class AccDoImplement implements AccountDo{
+	
+	private Map<String,Account> accounts;
+	
+	public AccDoImplement() {
+		// TODO Auto-generated constructor stub
+		accounts=Collections.synchronizedMap(new HashMap<String,Account>());
+	}
+
+	public boolean accountExists(String accountNumber)
+	{
+		return accounts.containsKey(accountNumber);
+	}
+	
+	public void createAccount(Account account) {
+		// TODO Auto-generated method stub
+	
+		if(accountExists(account.getAccNumber()))
+		{
+			throw new RuntimeException();
+		}
+		accounts.put(account.getAccNumber(), account);
+	}
+
+	public void updateAccount(Account account) {
+		// TODO Auto-generated method stub
+		if(!accountExists(account.accNumber)) {
+			throw new RuntimeException();
+		}
+		
+	}
+
+	public void removeAccount(Account account) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Account findAccount(String account) {
+		// TODO Auto-generated method stub
+		System.out.println(account);
+		System.out.println(accounts);
+		Account account1=accounts.get(account);
+		if(account1==null) {
+			System.out.println("null");
+			throw new RuntimeException();
+		}
+		return account1;
+	}
+
+}
+
